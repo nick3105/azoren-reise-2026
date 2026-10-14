@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Acht Tage Azoren: São Miguel, Faial und Pico. Persönlicher Reiseplan vom 16. bis 23. Oktober 2026 mit Flügen, Geburtstag und Zeit für eigene Abenteuer.">
+<meta name="theme-color" content="#163e3b"><title>Azoren · Acht Tage zwischen Grün & Blau</title>
+<style>
+:root{--ink:#173d39;--paper:#f5f3ec;--muted:#5c6d66;--line:#d4dcd3;--orange:#eaa77a;--green:#dce6d5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:inherit;text-underline-offset:4px}
+a:hover{color:#99542a}
+button{font:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #b96b38;outline-offset:5px}
+.skip{position:absolute;left:12px;top:-100px;background:white;padding:12px;z-index:10}
+.skip:focus{top:12px}
+.wrap{max-width:1200px;margin:auto;padding:0 36px}
+header{position:sticky;top:0;z-index:5;background:#f5f3ecf5;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
+.brand{font-weight:750;letter-spacing:.16em;text-decoration:none;font-size:14px}
+.links{display:flex;gap:24px;font-size:13px}
+.links a{text-decoration:none}
+.hero{position:relative;overflow:hidden;background:#163e3b;color:#f5f3ec;min-height:620px;display:grid;align-items:center}
+.hero .wrap{width:100%;position:relative;z-index:1}
+.hero-art{position:absolute;right:-3%;bottom:0;width:76%;height:100%;opacity:.75;pointer-events:none}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:650}
+.hero h1{font:clamp(56px,8vw,106px)/.98 Georgia,serif;letter-spacing:-.06em;max-width:780px;margin:26px 0}
+.hero h1 em{color:#dfb993;font-weight:400}
+.hero p{max-width:410px;color:#dfebe0}
+.pill{display:inline-block;padding:5px 12px;border:1px solid currentColor;border-radius:100px;font-size:12px;letter-spacing:.02em}
+.hero-bottom{display:flex;gap:40px;margin-top:50px;font-size:13px}
+.hero-bottom strong{display:block;font-size:24px;font-weight:400}
+.route{display:flex;gap:12px;flex-wrap:wrap;padding:26px 0;font-size:14px;border-bottom:1px solid var(--line)}
+.route span{color:var(--muted)}
+section{padding:74px 0}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:30px}
+h2{font:clamp(32px,4vw,48px)/1.15 Georgia,serif;letter-spacing:-.035em;margin:12px 0}
+h3{font:27px/1.2 Georgia,serif;margin:12px 0}
+p{margin:10px 0}
+.intro{max-width:550px;color:var(--muted)}
+.notice{border-left:3px solid #b56b37;padding:16px 22px;background:#eee4d6;font-size:14px}
+.notice strong{display:block}
+.flight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.flight{background:#fffdf6;border:1px solid var(--line);padding:26px}
+.flight .daylabel{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.flight-row{display:flex;justify-content:space-between;align-items:center;margin:22px 0 8px}
+.flight-row strong{display:block;font-size:30px;font-weight:500}
+.airport{font-size:13px;color:var(--muted)}
+.flight small{display:block;color:var(--muted)}
+.verified{color:#3b6950;font-size:12px;margin-top:18px}
+.connection{border-top:1px dashed var(--line);padding-top:15px;margin-top:15px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.filters button{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:40px;padding:9px 18px;font-size:13px}
+.filters button[aria-pressed=true]{background:var(--ink);color:white;border-color:var(--ink)}
+.days{border-top:1px solid var(--line)}
+.day{display:grid;grid-template-columns:135px 1fr;gap:30px;padding:32px 0;border-bottom:1px solid var(--line)}
+.date .number{font:54px/1 Georgia,serif}
+.date .weekday{font-size:12px;letter-spacing:.09em;text-transform:uppercase;margin-top:10px}
+.date .island{font-size:13px;color:var(--muted);margin-top:6px}
+.day-main{min-width:0}
+.day-title{display:flex;justify-content:space-between;gap:15px;align-items:start}
+.tag{white-space:nowrap;font-size:11px;border-radius:30px;padding:5px 10px;background:var(--green);margin-top:10px}
+.tag.solo{background:#dce7eb}
+.tag.transfer{background:#eee2d1}
+.schedule{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
+.slot{font-size:14px}
+.slot b{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.slot p{margin:0}
+.day-note{font-size:13px;color:var(--muted);margin-top:20px;max-width:850px}
+.birthday{background:#e8d7be;border-radius:4px;padding:34px 24px;margin:18px -24px}
+.birthday .tag{background:#fff8e9}
+.birthday h3{font-size:32px}
+.birthday-banner{display:grid;grid-template-columns:1fr 1fr;gap:60px;background:var(--ink);color:var(--paper);padding:48px;border-radius:4px}
+.birthday-banner p{color:#d4ded4}
+.birthday-banner ol{padding-left:20px;margin:0}
+.birthday-banner li{padding:8px 0;font-size:14px}
+.logistics{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{border:1px solid var(--line);padding:28px}
+.panel h3{font-size:24px}
+.panel ul{padding-left:20px;font-size:14px}
+.panel li{margin:10px 0}
+.status-list{display:grid;grid-template-columns:1fr 1fr;gap:0 30px;margin-top:24px}
+.status-row{display:flex;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line);padding:14px 0;font-size:14px}
+.open{color:#95612d;font-size:12px}
+.sources{font-size:13px;color:var(--muted)}
+.sources summary{font-weight:600;cursor:pointer;font-size:15px;color:var(--ink)}
+.sources ul{columns:2;padding-left:18px}
+.sources li{margin:12px 0;break-inside:avoid}
+footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+.footer-line{display:flex;justify-content:space-between;gap:20px}
+.print{background:transparent;border:1px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:30px;font-size:12px}
+[hidden]{display:none!important}
+@media(max-width:800px){.wrap{padding:0 22px}
+.links{gap:14px;font-size:12px}
+nav{min-height:68px;gap:12px}
+.hero{min-height:570px}
+.hero-art{width:120%;right:-40%;opacity:.45}
+.hero-bottom{gap:24px}
+.flight-grid{grid-template-columns:1fr}
+.flight-row{margin-top:14px}
+.section-top{display:block}
+.day{grid-template-columns:80px 1fr;gap:20px}
+.schedule{grid-template-columns:1fr;gap:18px}
+.day-title{display:block}
+.tag{display:inline-block;margin:0}
+.date .number{font-size:43px}
+.birthday{margin:18px -10px;padding:28px 10px}
+.birthday-banner{grid-template-columns:1fr;gap:22px;padding:30px}
+.logistics,.status-list{grid-template-columns:1fr}
+.sources ul{columns:1}
+section{padding:50px 0}
+}
+@media(max-width:460px){.brand{font-size:11px;letter-spacing:.1em}
+.links{gap:10px}
+.links a:last-child{display:none}
+.hero h1{font-size:61px}
+.hero-bottom{gap:20px;font-size:11px}
+.hero-bottom strong{font-size:20px}
+.day{grid-template-columns:62px 1fr;gap:14px}
+.date .island{font-size:11px}
+.date .weekday{font-size:10px}
+.footer-line{display:block}
+.print{margin-top:12px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}
+}
+@media print{header,.filters,.print,.hero-art{display:none}
+body{background:white;color:#111}
+.hero{min-height:0;background:white;color:#111;padding:30px 0}
+.hero h1{font-size:48px}
+.hero p,.hero h1 em{color:#333}
+.hero-bottom{margin-top:20px}
+section{padding:24px 0}
+.wrap{padding:0}
+.day{break-inside:avoid}
+.flight-grid{grid-template-columns:repeat(3,1fr)}
+.flight{padding:12px}
+.birthday-banner{background:#eee;color:#111}
+.birthday-banner p{color:#333}
+.sources{display:block}
+a{text-decoration:none}
+.day[hidden]{display:grid!important}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#reiseplan">Zum Reiseplan</a>
+<header><nav class="wrap" aria-label="Hauptnavigation"><a class="brand" href="#">AZOREN / 2026</a><div class="links"><a href="#fluege">Flüge</a><a href="#reiseplan">Tage</a><a href="#geburtstag">Geburtstag</a><a href="#logistik">Gut geplant</a></div></nav></header>
+<main>
+<div class="hero">
+<svg class="hero-art" viewBox="0 0 900 650" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><defs><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#35706a"/><stop offset="1" stop-color="#183e42"/></linearGradient><linearGradient id="hill" x2="0" y2="1"><stop stop-color="#728f67"/><stop offset="1" stop-color="#264d41"/></linearGradient></defs><circle cx="697" cy="125" r="66" fill="#e1bc8c" opacity=".9"/><path d="M0 325Q210 240 380 310T900 280V650H0Z" fill="url(#sea)"/><path d="M310 415L630 95L772 314L900 420V650H180Z" fill="#4e7061"/><path d="M0 420Q90 260 210 342Q340 425 455 325Q610 278 790 476L900 650H0Z" fill="url(#hill)"/><path d="M0 520Q170 450 333 522T900 525V650H0Z" fill="#1b4542"/><g fill="none" stroke="#a5bd9a" opacity=".3"><path d="M35 435Q180 370 300 451T600 432"/><path d="M20 463Q180 401 330 480T665 460"/><path d="M450 397L637 166L737 323"/><path d="M484 411L638 209L720 329"/></g><g fill="none" stroke="#a4c9bb" opacity=".3"><path d="M460 570h240m-80 20h240M80 602h330"/></g></svg>
+<div class="wrap"><span class="pill">16.–23. Oktober 2026</span><h1>Acht Tage.<br>Zwischen<br><em>Grün & Blau.</em></h1><p>Kraterseen, Atlantikluft und Wein zwischen Lavasteinen. Eine Reise zu zweit — mit Raum für eigene Abenteuer.</p><div class="hero-bottom"><div><strong>São Miguel</strong>16.–21. Oktober</div><div><strong>Faial → Pico</strong>21.–23. Oktober</div><div><strong>22. Oktober</strong>Ein Tag zum Feiern</div></div></div>
+</div>
+<div class="wrap">
+<div class="route" aria-label="Reiseroute">Lissabon <span>→</span> Ponta Delgada <span>→ über Terceira</span> Horta <span>⇄ Fähre</span> Madalena / Pico <span>→</span> Lissabon</div>
+<section id="fluege"><div class="section-top"><div><div class="eyebrow">01 / Die Eckpunkte</div><h2>Einmal Atlantik, bitte.</h2></div><p class="intro">Alle Flugzeiten sind lokale Flughafenzeiten. Im Reisezeitraum liegt Lissabon eine Stunde vor den Azoren; innerhalb der Azoren gibt es keinen Zeitunterschied.</p></div>
+<div class="flight-grid">
+<article class="flight"><div class="daylabel">Freitag · 16. Oktober / Hinflug</div><div class="flight-row"><div><strong>06:00</strong><span class="airport">LIS · Lissabon</span></div><span aria-hidden="true">↗</span><div><strong>07:30</strong><span class="airport">PDL · Ponta Delgada</span></div></div><small>S4121 · Azores Airlines · Flugdauer 2 h 30 min</small><p class="verified">Laut übermittelter SATA-Bestätigung vom 07.10.</p></article>
+<article class="flight"><div class="daylabel">Mittwoch · 21. Oktober / Inselwechsel</div><div class="flight-row"><div><strong>13:35</strong><span class="airport">PDL</span></div><span aria-hidden="true">↗</span><div><strong>14:15</strong><span class="airport">TER · Terceira</span></div></div><small>SP404 · SATA Air Açores</small><div class="connection"><strong>14:45 TER → 15:20 HOR</strong><small>SP636 · Horta / Faial · Umstieg 30 Minuten</small></div><p class="verified">Laut übermittelter SATA-Bestätigung vom 07.10.</p></article>
+<article class="flight"><div class="daylabel">Freitag · 23. Oktober / Rückflug</div><div class="flight-row"><div><strong>17:50</strong><span class="airport">HOR · Horta</span></div><span aria-hidden="true">↗</span><div><strong>21:20</strong><span class="airport">LIS · Lissabon</span></div></div><small>S4152 · Azores Airlines · Flugdauer 2 h 30 min</small><p class="verified">Laut übermittelter SATA-Bestätigung vom 07.10.</p></article>
+</div><p class="day-note">Quelle der persönlichen Flugdaten: vom Reisenden übermittelte Buchungsbestätigung; das Original wurde hier nicht eingesehen. Flugstatus und Änderungen vor Abreise bei SATA prüfen. Buchungsreferenz und persönliche Dokumente werden nicht veröffentlicht.</p>
+<div class="notice"><strong>Mittwoch braucht eine klare Absprache.</strong>Arbeit bis etwa 12:00 Uhr trifft auf Abflug um 13:35 Uhr. Vorschlag: Arbeit gegen 11:15 Uhr beenden, Mietwagen zurückgeben und gegen 12:05 Uhr am Terminal sein. SATA öffnet den Interinsel-Check-in 90 Minuten vorher; er schließt 30 Minuten vor Abflug (hier 13:05 Uhr). Die Schließzeit ist kein Ziel für die Ankunft. Falls Arbeit bis 12:00 Uhr unverzichtbar ist, Transfer, Gepäck und Check-in vorher konkret abstimmen.</div>
+</section>
+<section id="reiseplan"><div class="section-top"><div><div class="eyebrow">02 / Euer Rhythmus</div><h2>Viel erleben.<br>Genug Luft lassen.</h2></div><p class="intro">Freitag bis Sonntag gemeinsam unterwegs. Montag und Dienstag bleibt die Zeit bis 16 Uhr für Arbeit und Solo-Abenteuer frei. Alle Aktivitätszeiten sind Vorschläge in Azoren-Ortszeit, keine Reservierungen. Arbeitszeiten bitte mit dem beruflichen Kalender abgleichen.</p></div>
+<div class="filters" role="group" aria-label="Tage filtern"><button type="button" data-filter="all" aria-pressed="true">Alle acht Tage</button><button type="button" data-filter="together" aria-pressed="false">Gemeinsam</button><button type="button" data-filter="solo" aria-pressed="false">Arbeit & Solo</button><button type="button" data-filter="transfer" aria-pressed="false">Reisetage</button></div><p id="filter-status" class="day-note" aria-live="polite">8 Tage angezeigt</p>
+<div class="days">
+<article class="day" data-types="together transfer"><div class="date"><div class="number">16</div><div class="weekday">Freitag</div><div class="island">São Miguel</div></div><div class="day-main"><div class="day-title"><h3>Ankommen, durchatmen, Meer.</h3><span class="tag transfer">Anreisetag</span></div><div class="schedule"><div class="slot"><b>07:30 / Ankunft</b><p>Landung in Ponta Delgada. Mietwagen abholen, Frühstück und Gepäck in der Unterkunft abgeben; frühes Einchecken anfragen.</p></div><div class="slot"><b>Mittag / Langsam starten</b><p>Portas da Cidade, Altstadt und Hafenpromenade zu Fuß. Danach bewusst eine Pause nach dem sehr frühen Flug.</p></div><div class="slot"><b>Abend / Gemeinsam</b><p>Ein entspanntes Essen in Ponta Delgada und früh schlafen. Heute kein langer Insel-Roadtrip.</p></div></div><p class="day-note">Mietwagen und Unterkunft sind nicht als gebucht belegt. Auf der Anreise ausreichend Zeit für den frühen LIS-Check-in einplanen; SATA nennt für Inlandsflüge ab Terminal 1 eine Schließzeit von 60 Minuten vorher.</p></div></article>
+<article class="day" data-types="together"><div class="date"><div class="number">17</div><div class="weekday">Samstag</div><div class="island">São Miguel</div></div><div class="day-main"><div class="day-title"><h3>Die Seen von Sete Cidades.</h3><span class="tag">Gemeinsamer Tag</span></div><div class="schedule"><div class="slot"><b>09:00 / Westen</b><p>Bei guter Sicht zum Vista do Rei. Kurze Aussichtsrunde und Fotos statt eines vollen Wanderprogramms.</p></div><div class="slot"><b>12:00 / Im Krater</b><p>Mittagessen im Ort Sete Cidades, anschließend ein Spaziergang am See. Die Länge entscheidet ihr vor Ort.</p></div><div class="slot"><b>15:30 / Küste</b><p>Weiter nach Mosteiros, Lavaküste ansehen und vor Dunkelheit zurückfahren. Bei tiefen Wolken direkt mit der Küste beginnen.</p></div></div><p class="day-note">Vor Wanderungen aktuellen Wegstatus prüfen. Naturpools nur bei ruhigem Meer und sicheren Bedingungen nutzen. Fahrzeiten und Stopps bleiben wetterabhängig.</p></div></article>
+<article class="day" data-types="together"><div class="date"><div class="number">18</div><div class="weekday">Sonntag</div><div class="island">São Miguel</div></div><div class="day-main"><div class="day-title"><h3>Furnas: Wärme aus der Erde.</h3><span class="tag">Gemeinsamer Tag</span></div><div class="schedule"><div class="slot"><b>09:00 / Nach Furnas</b><p>Fahrt ins Furnas-Tal und kurzer Stopp am See. Bei klarer Sicht einen Aussichtspunkt ergänzen.</p></div><div class="slot"><b>12:00 / Mittag</b><p>Cozido als kulinarische Idee: Tisch und Gericht vorher anfragen. Danach ohne Eile weiter zum Park.</p></div><div class="slot"><b>13:30–16:00 / Terra Nostra</b><p>Garten und Thermalbecken. Dunkle Badekleidung, Handtuch und Wechselkleidung mitnehmen.</p></div></div><p class="day-note">Terra Nostra ist ein verifizierter Anbieter, aber nicht gebucht. Betreiberangabe am 14.10.: Thermalbecken und Jacuzzis 10:30–16:30 Uhr. Öffnung und Eintritt vor dem Besuch erneut prüfen; deshalb kein Besuch nach einem Arbeitstag bis 16 Uhr.</p></div></article>
+<article class="day" data-types="solo"><div class="date"><div class="number">19</div><div class="weekday">Montag</div><div class="island">São Miguel</div></div><div class="day-main"><div class="day-title"><h3>Arbeitsplatz & Atlantikwellen.</h3><span class="tag solo">Arbeit bis 16:00</span></div><div class="schedule"><div class="slot"><b>Vormittag / Sie</b><p>Arbeiten in der Unterkunft. Stabiles WLAN, ruhigen Tisch und Ladeplätze bereits vorab bestätigen lassen.</p></div><div class="slot"><b>09:30–13:00 / Du solo</b><p>Surfunterricht am Praia de Santa Bárbara bei Ribeira Grande anfragen. Schule, Abholung und Bedingungen sind noch offen.</p></div><div class="slot"><b>Ab 16:30 / Zu zweit</b><p>Kaffee und ein kurzer Küstenspaziergang nahe Ponta Delgada. Danach gemeinsam essen, ohne großen Fahrweg.</p></div></div><p class="day-note">Santa Bárbara ist als Surfspot verifiziert; ein Kursanbieter wurde nicht ausgewählt. Nur nach Einschätzung einer lokalen Schule ins Wasser. Bei ungeeigneter Brandung: Ribeira Grande erkunden und Strandspaziergang statt Surfen.</p></div></article>
+<article class="day" data-types="solo"><div class="date"><div class="number">20</div><div class="weekday">Dienstag</div><div class="island">São Miguel</div></div><div class="day-main"><div class="day-title"><h3>Ein eigener Weg, ein gemeinsamer Abend.</h3><span class="tag solo">Arbeit bis 16:00</span></div><div class="schedule"><div class="slot"><b>Vormittag / Sie</b><p>Zweiter Arbeitstag in der Unterkunft. Das Auto steht tagsüber für deinen Solo-Ausflug zur Verfügung.</p></div><div class="slot"><b>09:00–14:00 / Du solo</b><p>Kurze Wanderung nach aktuellem Wegstatus und Wetter auswählen. Alternativ eine Aussichtsrunde an der Lagoa do Fogo bei freier Sicht, ohne lange Bergtour.</p></div><div class="slot"><b>Ab 16:30 / Zu zweit</b><p>Altstadtbummel und frühes Abendessen. Koffer packen, Mietwagenrückgabe bestätigen und den nächsten Reisetag durchgehen.</p></div></div><p class="day-note">Wanderung erst nach Prüfung im offiziellen Azoren-Wanderportal festlegen; Sperrungen, Zufahrt und Sichtlage prüfen. Bei Regen: lokaler Museumsbesuch oder Cafépause. Keine reservierte Tour.</p></div></article>
+<article class="day" data-types="solo transfer"><div class="date"><div class="number">21</div><div class="weekday">Mittwoch</div><div class="island">Faial → Pico</div></div><div class="day-main"><div class="day-title"><h3>Über Terceira Richtung Pico.</h3><span class="tag transfer">Inselwechsel</span></div><div class="schedule"><div class="slot"><b>Früh / Arbeit & Abreise</b><p>Kurzer Arbeitsblock; Ende möglichst 11:15 Uhr abstimmen. Gepäck fertig, Auto zurückgeben, Ziel: 12:05 Uhr am PDL-Terminal.</p></div><div class="slot"><b>13:35–15:20 / Fliegen</b><p>SP404 nach Terceira, dort 30 Minuten Umstieg; SP636 weiter nach Horta. Durchgehende Gepäckabfertigung und Anschluss mit SATA bestätigen.</p></div><div class="slot"><b>Nach der Landung / Fähre</b><p>Gepäck abholen, Transfer zum Hafen Horta. Passende Atlânticoline-Fähre nach Madalena erst mit Landungspuffer festlegen. Auf Pico Auto übernehmen und einchecken.</p></div></div><p class="day-note">Keine Fährabfahrt am 21.10. bestätigt. Nicht auf einen knappen Anschluss setzen. Falls keine passende Überfahrt verfügbar ist oder das Wetter sie verhindert: Übernachtung auf Faial und Weiterfahrt am 22.10.; Unterkunft und Mietwagen auf Pico entsprechend abstimmen.</p></div></article>
+<article class="day birthday" data-types="together"><div class="date"><div class="number">22</div><div class="weekday">Donnerstag</div><div class="island">Pico</div></div><div class="day-main"><div class="day-title"><h3>Ein Geburtstag zwischen Lava & Wein.</h3><span class="tag">Alles Gute ♡</span></div><div class="schedule"><div class="slot"><b>09:30 / Ein schöner Anfang</b><p>Langes Frühstück mit kleinem Kuchen und persönlicher Karte. Kein Wecker für eine große Bergtour.</p></div><div class="slot"><b>11:00 / Gemeinsam entdecken</b><p>Spaziergang zwischen den Basaltmauern von Criação Velha. Anschließend Mittagessen und bei Interesse eine vorab angefragte Weinprobe.</p></div><div class="slot"><b>Abend / Der besondere Moment</b><p>Ein Geburtstagsdinner in oder nahe Madalena reservieren. Kuchenwunsch vorab besprechen; Küstenblick bei gutem Wetter, gemütlicher Tisch bei Regen.</p></div></div><p class="day-note">Frühstück, Kuchen, Weinprobe und Restaurant sind Ideen, nicht gebucht. Bei Weinprobe Transfer organisieren oder eine Person bleibt alkoholfrei. Schlechtwetterplan: eine bestätigte Indoor-Weinprobe und ein langes Essen. Falls ihr noch auf Faial seid, den Geburtstag dort feiern und keinen Transferstress erzwingen.</p></div></article>
+<article class="day" data-types="together transfer"><div class="date"><div class="number">23</div><div class="weekday">Freitag</div><div class="island">Pico → Faial</div></div><div class="day-main"><div class="day-title"><h3>Ein letzter Blick auf den Atlantik.</h3><span class="tag transfer">Rückreisetag</span></div><div class="schedule"><div class="slot"><b>Vormittag / Nach Horta</b><p>Frühstück, auschecken, Auto auf Pico zurückgeben. Eine bestätigte Vormittagsfähre Madalena → Horta wählen, mit großem Abstand zum Flug.</p></div><div class="slot"><b>Mittag / Wenn Puffer bleibt</b><p>Gepäckaufbewahrung vorher klären; kurzer Spaziergang am Hafen Horta. Keine große Faial-Rundfahrt vor dem Rückflug.</p></div><div class="slot"><b>15:50 / Flughafen-Ziel</b><p>Transfer zum Flughafen Horta; Zielankunft zwei Stunden vor Abflug. S4152 startet um 17:50 Uhr und landet um 21:20 Uhr in Lissabon.</p></div></div><p class="day-note">Fähre am 23.10. ist noch nicht gebucht. Für maximale Robustheit schon am Abend des 22.10. nach Faial zurückkehren und dort übernachten — das verändert den Geburtstagsabend. Bei problematischer Seewetterprognose rechtzeitig diese Variante wählen. Separate Fähr- und Flugtickets nicht als abgesicherten Anschluss behandeln.</p></div></article>
+</div></section>
+<section id="geburtstag"><div class="birthday-banner"><div><div class="eyebrow">03 / Donnerstag, 22. Oktober</div><h2>Ein Tag, der sich<br>nach euch anfühlt.</h2><p>Ein kleiner Überraschungsmoment am Morgen. Zeit für die Landschaft. Ein Tisch, an dem ihr bleiben möchtet. So wird der Geburtstag besonders, ohne ihn vollzupacken.</p></div><div><ol><li><strong>Vorab organisieren:</strong> Kuchen bei Unterkunft oder Bäckerei anfragen; persönliche Karte mitbringen.</li><li><strong>Zwei Reservierungen reichen:</strong> Wunsch-Weinprobe und Abendessen. Verfügbarkeit, Preis und Stornierung schriftlich bestätigen lassen.</li><li><strong>Wetterfreundlich planen:</strong> Spaziergang flexibel; Indoor-Alternative vorher anfragen.</li><li><strong>Pico-Gipfel nur als Extra:</strong> Kein fester Bestandteil dieses Geburtstags. Wenn gewünscht, Zugang, Wetter, Fitness und Führung separat klären.</li></ol></div></div></section>
+<section id="logistik"><div class="section-top"><div><div class="eyebrow">04 / Gut geplant</div><h2>Die kleinen Details,<br>die viel entspannter machen.</h2></div><p class="intro">Horta liegt auf Faial, Madalena auf Pico. Der Flug endet also noch nicht auf eurer letzten Insel. Fähre und Landtransfers gehören fest in die Planung.</p></div>
+<div class="logistics"><article class="panel"><h3>Fähre: Horta ⇄ Madalena</h3><ul><li><a href="https://booking.atlanticoline.pt/timetable/" target="_blank" rel="noopener">Atlânticoline-Fahrplan & Buchung</a>: Verbindung und Betreiber verifiziert. Die im Portal sichtbaren Fahrten am 14.10. dauern 30 Minuten; das ist keine Bestätigung für den 21. oder 23.10.</li><li>Beide Reisetage gezielt auswählen, Abfahrt und Ende des Check-ins prüfen. Aktuelle Betriebsmitteilungen und Seewetter beachten.</li><li>Am 21.10. Zeit für Gepäck, Flughafen–Hafen-Transfer und Fähr-Check-in einkalkulieren. Am 23.10. eine frühe Rückfahrt wählen.</li><li>Fußpassagier-Tickets sind die Planungsbasis. Auto-Mitnahme nur nach schriftlicher Freigabe des Vermieters und bestätigter Fahrzeugbuchung.</li></ul><p class="open">Tickets / konkrete Zeiten: offen</p></article>
+<article class="panel"><h3>Mietwagen: separat je Insel</h3><ul><li><strong>São Miguel, 16.–21.10.:</strong> Abholung und Rückgabe am Flughafen PDL, Öffnungszeit bei früher Ankunft und Dauer der Rückgabe bestätigen.</li><li><strong>Pico, 21.–23.10.:</strong> Übernahme in Madalena bzw. Hafen-Zustellung anfragen, abgestimmt auf die bestätigte Fähre.</li><li><strong>Faial:</strong> Für reine Flughafen–Hafen-Transfers ist ein Taxi/Transfer praktischer. Wenn ihr dort fahren möchtet, separate Kurzzeitmiete anfragen.</li><li>Kaution, Selbstbeteiligung, akzeptierte Karte, zusätzliche Fahrer, Tankregel und Stornierung vergleichen. Schäden bei Übernahme dokumentieren.</li></ul><p class="open">Vermieter / Autos / Preise: nicht ausgewählt oder bestätigt</p></article>
+<article class="panel"><h3>Arbeiten mit gutem Gefühl</h3><ul><li>Montag und Dienstag bis 16:00 Uhr, Mittwoch halbtags. Im Plan sind diese Zeiten als lokale Azorenzeit angenommen.</li><li>Unterkunft um aktuelle WLAN-Messung, ruhigen Arbeitsplatz und Ausweichmöglichkeit bitten. Mobile Daten als Backup prüfen.</li><li>Mittwoch Arbeitsende und Check-out mit Flugabfertigung abstimmen. Bei festem Arbeitsende 12:00 Uhr verbleibt wenig Reserve.</li><li>Gemeinsame Aktivitäten nach der Arbeit kurz halten; die großen Ausflüge liegen am Wochenende.</li></ul></article>
+<article class="panel"><h3>Wetter & Solo-Abenteuer</h3><ul><li><a href="https://trilhos.visitazores.com/en" target="_blank" rel="noopener">Offizielles Wanderportal</a> vor jeder Tour auf Öffnung und passende Route prüfen; Regenjacke, griffige Schuhe und Offline-Karte mitnehmen.</li><li>Surfkurs statt unbekannter Brandung allein. Keine lokale Schule oder Ausrüstung ist bereits gebucht.</li><li>Der Pico-Gipfel ist eine separate Bergtour. <a href="https://montanhapico.azores.gov.pt/Default.aspx" target="_blank" rel="noopener">Offizielles Zugangsportal</a> prüfen, bei Interesse Führung und Bedingungen klären.</li><li>Je nach Sichtlage See- und Küstentage tauschen. Am Transfer- und Rückflugtag keine langen Touren einplanen.</li></ul></article></div>
+<h3 style="margin-top:40px">Was steht — und was noch offen ist.</h3><div class="status-list"><div class="status-row"><span>Flüge am 16., 21. und 23.10.</span><span class="verified">Laut Nutzerbestätigung</span></div><div class="status-row"><span>Geburtstag am 22.10.</span><span class="verified">Vom Nutzer angegeben</span></div><div class="status-row"><span>Fähren am 21. und 23.10.</span><span class="open">Unbestätigt</span></div><div class="status-row"><span>Unterkünfte / WLAN</span><span class="open">Unbestätigt</span></div><div class="status-row"><span>Mietwagen auf den Inseln</span><span class="open">Unbestätigt</span></div><div class="status-row"><span>Surfkurs / Weinprobe / Dinner</span><span class="open">Vorschläge</span></div></div>
+</section>
+<section class="sources"><details open><summary>Quellen & Prüfstand · 14. Oktober 2026</summary><p>Der frühere Chat enthielt die Reisevorgaben, aber keinen abrufbaren ausgearbeiteten Plan. Dieser Tagesablauf wurde daraus neu erstellt. Die Flugzeiten wurden anschließend vom Reisenden aus der SATA-Bestätigung vom 7. Oktober ergänzt. Keine Unterkunft, Fähre, Mietwagen- oder Aktivitätsbuchung ist durch ein Dokument belegt. Genannte Betreiber sind recherchierte Anlaufstellen; ihre Nennung bedeutet keine Reservierung oder Verfügbarkeitszusage.</p><ul><li><a href="https://www.azoresairlines.pt/pt-pt/antes-de-embarcar/check-in/tempos-comparencia">SATA: Check-in-Zeiten</a> — Interinsel und nationale Flüge.</li><li><a href="https://booking.atlanticoline.pt/timetable/">Atlânticoline: Fahrplan</a> — Horta–Madalena; konkrete Reisetage offen.</li><li><a href="https://www.parqueterranostra.com/en/the-thermal-waters/what-you-need-to-know/">Terra Nostra: Thermalbecken</a> — aktuelle Besucherzeiten.</li><li><a href="https://www.visitazores.com/en/explore/santa-barbara-beach">Visit Azores: Santa Bárbara</a> — Strand und Surfspot.</li><li><a href="https://trilhos.visitazores.com/en">Azores Trails</a> — aktuelle Wanderrouten und Status.</li><li><a href="https://trails.visitazores.com/sites/default/files/prc_05_pic_-_vinhas_da_criacao_velha_flyer_0.pdf">Criação Velha: offizielles Wanderblatt</a> — Weinlandschaft auf Pico; aktuellen Wegstatus separat prüfen.</li><li><a href="https://montanhapico.azores.gov.pt/Default.aspx">Pico: offizielles Zugangsportal</a> — optionale Bergtour.</li></ul><p>Uhrzeitvergleich anhand der Zeitzonen Europe/Lisbon und Atlantic/Azores für den 16.–23.10.2026. Öffnungszeiten, Fahrpläne und Wetter können sich ändern; unmittelbar vor Nutzung erneut prüfen.</p></details></section>
+</div></main>
+<footer><div class="wrap footer-line"><div>AZOREN / 2026 · Ein persönlicher Reiseentwurf · Stand 14.10.2026<br>Alle Aktivitätszeiten lokal und flexibel. Keine Buchungsreferenzen oder persönlichen Kontaktdaten.</div><button class="print" type="button" id="print">Reiseplan drucken / PDF</button></div></footer>
+<script>
+const buttons=document.querySelectorAll('[data-filter]');const days=document.querySelectorAll('.day');buttons.forEach(button=>button.addEventListener('click',()=>{buttons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));let count=0;days.forEach(day=>{day.hidden=button.dataset.filter!=='all'&&!day.dataset.types.split(' ').includes(button.dataset.filter);if(!day.hidden)count++}
+);document.getElementById('filter-status').textContent=count+' Tage angezeigt'}
+));document.getElementById('print').addEventListener('click',()=>window.print());
+</script>
+</body></html>
